@@ -1,0 +1,9 @@
+ENABLED=yes
+LABEL="EFI Shell (64 bit)"
+ARCH=x64
+BINARY=/EFI/SHELLX64.EFI
+
+install_files () {
+
+	update_file /lib/efi/x64/Shell.efi /boot/efi/EFI/SHELLX64.EFI
+}

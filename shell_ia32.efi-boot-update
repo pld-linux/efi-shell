@@ -1,0 +1,9 @@
+ENABLED=yes
+LABEL="EFI Shell (32 bit)"
+ARCH=ia32
+BINARY=/EFI/SHELL.EFI
+
+install_files () {
+
+	update_file /lib/efi/ia32/Shell.efi /boot/efi/EFI/SHELL.EFI
+}
