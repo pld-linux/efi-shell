@@ -40,9 +40,11 @@ Group:		Base
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/lib/efi/{ia32,x64}
+install -d $RPM_BUILD_ROOT{/lib/efi/{ia32,x64},/etc/efi-boot/update.d}
 install UefiShell/Ia32/Shell.efi $RPM_BUILD_ROOT/lib/efi/ia32
 install UefiShell/X64/Shell.efi $RPM_BUILD_ROOT/lib/efi/x64
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/efi-boot/update.d/shell_ia32.conf
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/efi-boot/update.d/shell_x64.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,8 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc License.txt ReadMe.txt Contributions.txt
 /lib/efi/ia32/*
+/etc/efi-boot/update.d/shell_ia32.conf
 
 %files x64
 %defattr(644,root,root,755)
 %doc License.txt ReadMe.txt Contributions.txt
 /lib/efi/x64/*
+/etc/efi-boot/update.d/shell_x64.conf
