@@ -48,7 +48,10 @@ install UefiShell/X64/Shell.efi $RPM_BUILD_ROOT/lib/efi/x64
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/efi-boot-update --auto || :
+[ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
+
+%postun
+[ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
 
 %files ia32
 %defattr(644,root,root,755)
