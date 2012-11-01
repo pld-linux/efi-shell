@@ -49,10 +49,16 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/efi-boot/update.d/shell_x64.conf
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
+%post ia32
 [ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
 
-%postun
+%postun ia32
+[ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
+
+%post x64
+[ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
+
+%postun x64
 [ -x /sbin/efi-boot-update ] && /sbin/efi-boot-update --auto || :
 
 %files ia32
