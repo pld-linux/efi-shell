@@ -1,5 +1,6 @@
 %define	svnrev  13902
-Summary:	Native UDK implemenations of a UEFI Shell 2.0
+Summary:	Native UDK implementations of a UEFI Shell 2.0
+Summary(pl.UTF-8):	Natywne implementacje UDK powłoki UEFI Shell 2.0
 Name:		efi-shell
 Version:	2.0
 Release:	0.%{svnrev}.1
@@ -17,26 +18,39 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_enable_debug_packages	0
 
 %description
-Native UDK implemenations of a UEFI Shell 2.0.
+Native UDK implementations of a UEFI Shell 2.0.
+
+%description -l pl.UTF-8
+Natywne implementacje UDK powłoki UEFI Shell 2.0.
 
 %package ia32
-Summary:	Native UDK implemenations of a UEFI Shell 2.0
+Summary:	Native UDK implementation of a UEFI Shell 2.0 for IA32
+Summary(pl.UTF-8):	Natywna implementacja UDK powłoki UEFI Shell 2.0 dla IA32
 Group:		Base
 
 %description ia32
-32-bit version of the native UDK implemenations of a UEFI Shell 2.0.
+32-bit version of the native UDK implementation of a UEFI Shell 2.0
+(for IA32 architecture).
+
+%description ia32 -l pl.UTF-8
+32-bitowa natywna implementacja UDK powłoki UEFI Shell 2.0 (dla
+architektury IA32).
 
 %package x64
-Summary:	Native UDK implemenations of a UEFI Shell 2.0
+Summary:	Native UDK implementation of a UEFI Shell 2.0
+Summary(pl.UTF-8):	Natywna implementacja UDK powłoki UEFI Shell 2.0 dla x64
 Group:		Base
 
 %description x64
-64-bit version of the native UDK implemenations of a UEFI Shell 2.0.
+64-bit version of the native UDK implemenations of a UEFI Shell 2.0
+for x64 (x86_64) platform.
+
+%description x64 -l pl.UTF-8
+64-bitowa natywna implementacja UDK powłoki UEFI Shell 2.0 dla
+architektury x64 (x86_64).
 
 %prep
 %setup -qn ShellBinPkg
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -64,11 +78,11 @@ rm -rf $RPM_BUILD_ROOT
 %files ia32
 %defattr(644,root,root,755)
 %doc License.txt ReadMe.txt Contributions.txt
-/lib/efi/ia32/*
+/lib/efi/ia32/Shell.efi
 /etc/efi-boot/update.d/shell_ia32.conf
 
 %files x64
 %defattr(644,root,root,755)
 %doc License.txt ReadMe.txt Contributions.txt
-/lib/efi/x64/*
+/lib/efi/x64/Shell.efi
 /etc/efi-boot/update.d/shell_x64.conf
