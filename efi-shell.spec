@@ -3,7 +3,7 @@ Summary:	Native UDK implementations of a UEFI Shell 2.0
 Summary(pl.UTF-8):	Natywne implementacje UDK powłoki UEFI Shell 2.0
 Name:		efi-shell
 Version:	2.0
-Release:	0.%{svnrev}.1
+Release:	0.%{svnrev}.2
 License:	BSD-like
 Group:		Applications
 #https://edk2.svn.sourceforge.net/svnroot/edk2/trunk/edk2/ShellBinPkg
